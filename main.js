@@ -2,18 +2,19 @@ const display = document.querySelector("input[type=display]");
 const container = document.querySelectorAll(".container");
 const buttons = document.querySelectorAll("button");
 const equals = document.querySelector("#equals");
-let clear = document.querySelector('#clear');
+let clear = document.querySelector("#clear");
 
 let numeric = "1234567890";
 let operatorList = "+-/*";
 let isClicked1stInput = false;
 let isOperator = 0;
 let isTotal = false;
+let total ='';
 
 let temp = "";
-let num1 = 0
+let num1 = 0;
 let operator = "";
-let num2 = 0
+let num2 = 0;
 
 /*
  ________  ________  _______   ________  ________  _________  ___  ________  ________   ________
@@ -65,14 +66,7 @@ buttons.forEach((button) => {
   if (numeric.split("").includes(button.textContent)) {
     button.addEventListener("click", () => {
       if (isTotal && isOperator === 0) {
-        isOperator = 0;
-        num1 = 0;
-        operator = '';
-        num2 = 0;
-        total = 0;
-        display.value = "";
-        isTotal = false;
-        isClicked1stInput = false;
+        reset();
       }
 
       if (isOperator === 1) {
@@ -97,17 +91,16 @@ buttons.forEach((button) => {
         isOperator = 1;
       }
 
-      if (num2 !==0) {
+      if (num2 !== 0) {
         total = operate(operator, num1, num2);
         display.value = total;
-        num1=parseInt(total);
-        num2=0;
+        num1 = parseInt(total);
+        num2 = 0;
         isTotal = true;
-        isOperator=1;
+        isOperator = 1;
       }
       operator = button.textContent;
-      if(isOperator ===0)
-      {
+      if (isOperator === 0) {
         isOperator = 1;
       }
     });
@@ -133,10 +126,20 @@ equals.addEventListener("click", () => {
   console.log(`operator: ${operator}`);
   total = operate(operator, num1, num2);
   display.value = total;
-  num1=parseInt(total);
-  num2=0;
-  isOperator=0;
+  num1 = parseInt(total);
+  num2 = 0;
+  isOperator = 0;
   operator = "";
 });
 
-
+const reset=()=>{
+  num1 = 0;
+  num2 = 0;
+  isOperator = 0;
+  operator = "";
+  total = 0;
+  display.value = "";
+  isTotal = false;
+  isClicked1stInput = false;
+}
+clear.addEventListener("click", reset);
