@@ -1,36 +1,59 @@
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(./src/sung.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 .container{
-    max-width: 500px;
+    justify-content: center;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 3px;
+    height: 500px;
+
+    background: rgba(50,50,50,0.7);
+    padding: 10px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
 }
 
 .buttonsContainer{
+    flex: 8;
     display: flex;
-    gap: 5px;
+    gap: 3px;
 }
 .buttonGroup{
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 3px;
     flex: 1;
 }
 input[type=display]{
+    flex: 2;
     font-size: 40px;
     padding: 20px;
     text-align: right;
-    border-radius: 10px;
-    background-color: #f0f0f0;
-    border: 0;
+    border-radius: 5px;
+    background-color: transparent;
+    color: rgb(246,246,246);
+    border: 3px solid #777;
 }
 button{
     padding: 10px 30px;
     flex: 1;
     margin: 0;
-    background-color: #eee;
+    background: rgba(68,68,68, 0.9);
     border: 0;
-    border-radius: 10px;
+    border-radius: 5px;
+    font-size: 25px;
+    color: rgba(238,242,243);
+    font-weight: 600;
 }
 button:hover{
     background-color: orange;

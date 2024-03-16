@@ -131,18 +131,18 @@ buttons.forEach((button) => {
     button.style.backgroundColor = "orange";
   });
   button.addEventListener("mouseup", () => {
-    button.style.backgroundColor = "#aaa";
+    button.style.backgroundColor = "#555";
   });
   button.addEventListener("mouseenter", () => {
-    button.style.backgroundColor = "#aaa";
+    button.style.backgroundColor = "#555";
   });
   button.addEventListener("mouseleave", () => {
-    button.style.backgroundColor = "#eee";
+    button.style.backgroundColor = 'rgba(68,68,68, 0.9)';
   });
 });
 
 //this is equal event listener and not inside the forEach
-//if you click on equals
+
 equals.addEventListener("click", () => {
   total = operate(operator, num1, num2);
   display.value = total;
@@ -150,6 +150,7 @@ equals.addEventListener("click", () => {
   num2 = 0;
   isOperator = 0;
   operator = "";
+  isTotal = true;
 });
 
 const reset = () => {
