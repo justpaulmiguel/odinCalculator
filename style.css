@@ -1,0 +1,43 @@
+.container{
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.buttonsContainer{
+    display: flex;
+    gap: 5px;
+}
+.buttonGroup{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+input[type=display]{
+    font-size: 40px;
+    padding: 20px;
+    text-align: right;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    border: 0;
+}
+button{
+    padding: 10px 30px;
+    flex: 1;
+    margin: 0;
+    background-color: #eee;
+    border: 0;
+    border-radius: 10px;
+}
+button:hover{
+    background-color: orange;
+}
+.color-change.black {
+    background-color: black !important;
+  }
+  .color-change.white {
+    background-color: white !important;
+  }
