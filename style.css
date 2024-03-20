@@ -1,66 +1,71 @@
-body{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url(./src/sung.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(./src/math.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
 }
-.container{
-    justify-content: center;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    height: 500px;
+.container {
+  justify-content: center;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  height: 500px;
 
-    background: rgba(50,50,50,0.7);
-    padding: 10px;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
+  background: rgba(50, 50, 50, 0.7);
+  padding: 10px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
 }
 
-.buttonsContainer{
-    flex: 8;
-    display: flex;
-    gap: 3px;
+.buttonsContainer {
+  flex: 8;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
-.buttonGroup{
-    margin: 0;
+.buttonGroup {
+  margin: 0;
+  display: flex;
+  gap: 3px;
+  flex: 1;
+}
+.miscGroup{
+    margin: 0;  margin: 0;
     display: flex;
-    flex-direction: column;
     gap: 3px;
     flex: 1;
 }
-input[type=display]{
-    flex: 2;
-    font-size: 40px;
-    padding: 20px;
-    text-align: right;
-    border-radius: 5px;
-    background-color: transparent;
-    color: rgb(246,246,246);
-    border: 3px solid #777;
+input[type="display"] {
+  flex: 2;
+  font-size: 40px;
+  padding: 20px;
+  text-align: right;
+  border-radius: 5px;
+  background-color: transparent;
+  color: rgb(246, 246, 246);
+  border: 3px solid #777;
 }
-button{
-    padding: 10px 30px;
-    flex: 1;
-    margin: 0;
-    background: rgba(68,68,68, 0.9);
-    border: 0;
-    border-radius: 5px;
-    font-size: 25px;
-    color: rgba(238,242,243);
-    font-weight: 600;
-}
-button:hover{
-    background-color: orange;
+button {
+  padding: 10px 30px;
+  flex: 1;
+  margin: 0;
+  background: rgba(68, 68, 68, 0.9);
+  border: 0;
+  border-radius: 5px;
+  font-size: 25px;
+  color: rgba(238, 242, 243);
+  font-weight: 600;
 }
 .color-change.black {
-    background-color: black !important;
-  }
-  .color-change.white {
-    background-color: white !important;
-  }
+  background-color: black !important;
+}
+.color-change.white {
+  background-color: white !important;
+}
+
