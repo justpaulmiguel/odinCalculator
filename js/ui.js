@@ -42,7 +42,8 @@ buttonGroups.forEach((buttonGroup) => {
         // 0 if there is no operator being used
         // 1 if there is an an operator
         // 2 to prevent it from clearing the display bec. if it is set to zero it will clear the display
-        if (isOperator === 1) {
+        // also prevents the display from clearing when the display.value is '0.'
+        if (isOperator === 1 && display.value !== "0.") {
           display.value = "";
           isOperator = 2;
         }
@@ -63,14 +64,14 @@ buttonGroups.forEach((buttonGroup) => {
 
 buttonGroups.forEach((buttonGroup) => {
   const buttons = buttonGroup.querySelectorAll("button");
-  
+
   buttons.forEach((button) => {
     //the if filters the buttons with operators in it and distribute the event to the buttons with operator right after
     if (operatorList.split("").includes(button.textContent)) {
       button.addEventListener("click", () => {
         // after typing the 1st input if this operator event is triggered
         // this then filters if the first input is already in variable
-        //if not num1 gets the display.value and parse it into int
+        //if not num1 gets the display.value and parse it into float
         //set the isOperator into 1 to say that we picked an operator
         if (num1 === 0) {
           num1 = parseFloat(display.value);
@@ -82,8 +83,8 @@ buttonGroups.forEach((buttonGroup) => {
         //this will call the operate function
         //and set operator to 1 to say that another operation might be coming
         if (num2 !== 0) {
-          total = operate(operator, num1, num2);
-          display.value = total.toFixed(5);
+          total = fixedLength(operate(operator, num1, num2));
+          display.value = total;
           num1 = parseFloat(total);
           num2 = 0;
           isOperator = 1;
@@ -101,29 +102,45 @@ buttonGroups.forEach((buttonGroup) => {
   });
 });
 
-percentage.addEventListener('click',()=>{
-    display.value = parseFloat(display.value) * 0.01;
+//get the percent
+percentage.addEventListener("click", () => {
+  display.value = fixedLength(parseFloat(display.value) * 0.01);
 });
 
-negate.addEventListener('click', ()=>{
-    if(display.value>0){
-        display.value = '-' + display.value;
-    }else if(display.value<0){
-        display.value = Math.abs(display.value);
-    }
-})
-
-backspace.addEventListener('click', ()=>{
-    let splitted = '';
-    splitted = display.value.split('')
-    splitted.pop()
-    splitted = splitted.join('');
-    // .join
-    display.value = splitted;
+//make the display negative of bring back to positive
+negate.addEventListener("click", () => {
+  if (display.value > 0) {
+    display.value = "-" + display.value;
+  } else if (display.value < 0) {
+    display.value = Math.abs(display.value);
+  }
 });
 
-point.addEventListener('click',()=>{
-    if(display.value % 1 ==0){
-        display.value += '.';
-    }
+//remove number on the end
+backspace.addEventListener("click", () => {
+  let splitted = "";
+  splitted = display.value.split("");
+  splitted.pop();
+  splitted = splitted.join("");
+  display.value = splitted;
 });
+
+//add point
+point.addEventListener("click", () => {
+  if (
+    (num2 === 0 && (isOperator === 1 || isOperator === 2)) ||
+    display.value === ""
+  )
+    display.value = "0.";
+
+  if (!display.value.includes('.')) {
+    display.value += ".";
+  }
+});
+
+//if the number length is greater than 12 the number of digits will be 12
+const fixedLength = (number) => {
+  number = number.toString();
+  if (number.length > 12) return number.slice(0, 13);
+  else return number;
+};
